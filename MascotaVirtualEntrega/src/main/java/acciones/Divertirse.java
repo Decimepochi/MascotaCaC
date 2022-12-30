@@ -10,6 +10,10 @@ public class Divertirse {
             int nivelOriginal = mascota.getNivelAburrimiento();
             if(nivelOriginal != 0) {
                 mascota.setNivelAburrimiento(mascota.getNivelAburrimiento() - entretenimiento.getDesaburrimiento());
+                mascota.setNivelEnergia (mascota.getNivelEnergia() - 10);
+                mascota.setNivelHambre (mascota.getNivelHambre() + 15);
+                mascota.setNivelCansancio (mascota.getNivelCansancio() + (entretenimiento.getDesaburrimiento()/2));
+                mascota.setNivelFelicidad (mascota.getNivelFelicidad() + (entretenimiento.getDesaburrimiento()/2));
                 System.out.println("duke acaba de entretenerse con "
                         + entretenimiento
                         + " y su aburrimiento que estaba en " + nivelOriginal

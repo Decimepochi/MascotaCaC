@@ -1,40 +1,29 @@
 import java.sql.Connection;
-import modelos.DukeMascota;
-import persistencia.collections.MascotaPersistenceUseList;
+
+import enumeradores.AlmacenAlimentos;
+import enumeradores.EntretenimientosEnum;
+import modelos.Duke;
+import modelos.Perro;
+import persistencia.collecions.MascotaPersistenceUseList;
 import persistencia.mysql.MySQLConnection;
+import utils.RegistroCivilMascotas;
 
 public class Main {
 
     public static void main(String[] args) {
         MascotaPersistenceUseList persistence = new MascotaPersistenceUseList();
 
-        DukeMascota cersei = new DukeMascota("Cersei", "Wada");
+        Perro cersei = new Perro("Cersei", "Wada");
         persistence.guardar(cersei);
 
-        //    duke.comer(AlmacenAlimentos.ASADO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    duke.comer(AlmacenAlimentos.PORORO);
-        //    RegistroCivilMascotas.guardarActa(duke);
+        cersei.comer(AlmacenAlimentos.PORORO);
+        cersei.jugar(EntretenimientosEnum.BASQUET);
+        RegistroCivilMascotas.guardarActa(cersei);
 
         MySQLConnection conexion = new MySQLConnection();
         Connection connection = conexion.establecerConexion();
 
         conexion.cerrarConexion(connection);
 
-//    MascotaPersistenceUseMySQL persistenceUseBDMySQL = new MascotaPersistenceUseMySQL();
-//
-//    persistenceUseBDMySQL.guardar(duke);
-//    persistenceUseBDMySQL.guardar(duke2);
-//    persistenceUseBDMySQL.guardar(duke3);
-//    persistenceUseBDMySQL.guardar(duke4);
-//    Mascota mascota = persistenceUseBDMySQL.getMascota(1);
-//    System.out.println(mascota.getId() + " " + mascota.getFechaNacimiento());
     }
 }

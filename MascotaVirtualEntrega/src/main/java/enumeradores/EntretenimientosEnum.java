@@ -1,7 +1,7 @@
 package enumeradores;
 
 public enum EntretenimientosEnum {
-    PERINOLA(15), POKER(25), BAILAR(20), LEER(10), PASEAR(30);
+    PERINOLA(15), POKER(25), BASQUET(20), LEER(10), PASEAR(30);
 
     private int desaburrimiento;
 
